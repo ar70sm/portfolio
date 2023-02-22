@@ -42,3 +42,17 @@ function runningBar(element) {
     if (num == max) clearInterval(interval1);
   }, 1500 / max);
 }
+
+
+// work
+
+let tags =document.querySelectorAll("#work .box .tags");
+
+tags.forEach(e=>{
+  let tagsNames = e.dataset.tags.toUpperCase().split("+")
+  tagsNames.forEach(ele=>{
+    let span = document.createElement("span")
+    span.append(ele)
+    e.append(span)
+  })
+})
