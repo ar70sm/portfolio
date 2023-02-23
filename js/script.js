@@ -1,17 +1,15 @@
 // theme
-let colorTheme = document.querySelectorAll("nav .theme .color li");
+let theme = document.querySelector("nav .theme div");
+let body = document.body;
 
-colorTheme.forEach((e) => {
-  e.addEventListener("click", () => {
-    colorTheme.forEach((ele) => {
-      ele.classList.remove("active");
-    });
-    e.classList.add("active");
-    document
-      .querySelector("body > .container")
-      .setAttribute("theme", e.getAttribute("theme"));
+theme.addEventListener("click", () => {
+  if(body.dataset.theme =="dark"){
+    body.dataset.theme ="light"
+  }
+  else {
+    body.dataset.theme ="dark"
+  }
   });
-});
 
 // h2
 
