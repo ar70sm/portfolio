@@ -182,6 +182,7 @@ aside .info a::before {
 }
 aside .info a::after {
   content: attr(media-name);
+  color: white;
   top: calc(100% + 10px);
   padding: 3px;
   background-color: var(--main-red);
