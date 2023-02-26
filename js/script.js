@@ -17,7 +17,7 @@ let skillEvent = false;
 window.addEventListener("scroll", () => {
   if (
     window.pageYOffset >
-      skills.offsetTop + skills.offsetHeight - window.innerHeight &&
+    skills.offsetTop + skills.offsetHeight - window.innerHeight &&
     !skillEvent
   ) {
     let bars = document.querySelectorAll("#skills .bar div");
@@ -52,33 +52,29 @@ let vvvv = false
 function wrightStrings(string, p) {
   let i = 0;
   let j = 0;
-  let k = true;
+  let k = 0;
   let section = true;
   let theStatus = true;
   setInterval(() => {
     if (theStatus) {
       if (section) {
-        if (k) {
-          if(string[i][j]==" ")p.append(" ")
-          else{
-            let span = document.createElement("span");
-            span.append(string[i][j]);
-            p.append(span);
-          }
+        if (k%3==0) {
+          p.append(string[i][j]);
           j++;
           if (j == string[i].length) moment();
         }
       } else {
         j--;
-        p.children[j].remove();
+        p.innerHTML = p.innerHTML.slice(0,-1);
         if (j == 0) {
           moment();
           i == string.length - 1 ? (i = 0) : i++;
         }
       }
     }
-    k = !k;
-  }, 60);
+    k= (k%3)+1
+    console.log(k)
+  }, 50);
 
   setInterval(() => {
     if (!theStatus) {
@@ -109,3 +105,9 @@ tags.forEach((e) => {
     e.append(span);
   });
 });
+
+// copyright
+let copyright = document.getElementById("copyright")
+
+copyright.append("©", (new Date).getFullYear(), " all rights reserved for Abd Alrahman Ashraf")
+
