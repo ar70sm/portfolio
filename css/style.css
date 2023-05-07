@@ -338,6 +338,9 @@ h1 {
 #skills .js i {
   --icon-color: #ead41c;
 }
+#skills .react i {
+  --icon-color: #149eca;
+}
 #skills .bs i {
   --icon-color: #7611ed;
 }
@@ -367,14 +370,29 @@ h1 {
 }
 #work li {
   transition-duration: var(--main-delay);
-  padding: 2px 10px;
+  padding: 2px 10px 4px;
   cursor: pointer;
+  position: relative;
+  z-index: 1;
 }
-#work li:hover {
-  background-color: var(--main-background);
+#work li::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+  left: 0;
+  bottom: 0;
+  transition-duration: var(--main-delay);
+  z-index: -1;
 }
-#work li.active {
-  color: var(--main-red);
+#work li:hover:after {
+  height: 100%;
+  background-color: #fffa;  
+}
+#work li.active::after {
+  background-color: #dc354577;
+  height: 100%;
 }
 #work .boxes {
   position: relative;
